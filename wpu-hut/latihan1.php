@@ -1,3 +1,13 @@
+<?php
+
+    $data = file_get_contents('data/pizza.json');
+    $menu = json_decode($data, true);
+
+    $menu = $menu["menu"];
+    echo $menu[0]["nama"];
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,16 +47,19 @@
         </div>
 
         <div class="row">
+            <?php foreach ($menu as $row) : ?>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="img/menu/american-favourite.jpg" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">American Favourite</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Rp. 60.000,-</h5>
+                        <a href="#" class="btn btn-primary">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
 
     </div>
